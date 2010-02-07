@@ -1,0 +1,255 @@
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2010-02-06 17:44:39) [GET]
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Completed in 66ms (View: 9, DB: 1) | 200 OK [http://127.0.0.1/rails/info/properties]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (130.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (75.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRecipes (20100206224707)
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE TABLE "recipes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "author" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100206224707')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("recipes")[0m
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-02-06 17:48:17) [GET]
+  [4;35;1mRecipe Load (0.0ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/recipes
+Rendering recipes/index
+Completed in 2079ms (View: 2072, DB: 0) | 200 OK [http://127.0.0.1/recipes]
+
+
+Processing RecipesController#new (for 127.0.0.1 at 2010-02-06 17:48:24) [GET]
+Rendering template within layouts/recipes
+Rendering recipes/new
+Completed in 18ms (View: 12, DB: 0) | 200 OK [http://127.0.0.1/recipes/new]
+
+
+Processing RecipesController#create (for 127.0.0.1 at 2010-02-06 17:48:40) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"pP4gxqwf61QY4meeKBdaZ/kDuD2dfAIa9xeg/y6pJaw=", "recipe"=>{"title"=>"Test 1", "author"=>"SJT", "description"=>"First thing in rails!!!"}}
+  [4;36;1mRecipe Create (2.0ms)[0m   [0;1mINSERT INTO "recipes" ("updated_at", "title", "author", "description", "created_at") VALUES('2010-02-06 22:48:40', 'Test 1', 'SJT', 'First thing in rails!!!', '2010-02-06 22:48:40')[0m
+Redirected to http://127.0.0.1:3000/recipes/1
+Completed in 191ms (DB: 2) | 302 Found [http://127.0.0.1/recipes]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-02-06 17:48:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.0ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/recipes
+Rendering recipes/show
+Completed in 16ms (View: 9, DB: 0) | 200 OK [http://127.0.0.1/recipes/1]
+
+
+Processing RecipesController#edit (for 127.0.0.1 at 2010-02-06 17:48:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (1.0ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+Rendering template within layouts/recipes
+Rendering recipes/edit
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://127.0.0.1/recipes/1/edit]
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-02-06 17:48:44) [GET]
+  [4;35;1mRecipe Load (0.0ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/recipes
+Rendering recipes/index
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/recipes]
+
+
+Processing RecipesController#destroy (for 127.0.0.1 at 2010-02-06 17:48:48) [DELETE]
+  Parameters: {"authenticity_token"=>"pP4gxqwf61QY4meeKBdaZ/kDuD2dfAIa9xeg/y6pJaw=", "id"=>"1"}
+  [4;36;1mRecipe Load (0.0ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+  [4;35;1mRecipe Destroy (1.0ms)[0m   [0mDELETE FROM "recipes" WHERE "id" = 1[0m
+Redirected to http://127.0.0.1:3000/recipes
+Completed in 153ms (DB: 1) | 302 Found [http://127.0.0.1/recipes/1]
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-02-06 17:48:48) [GET]
+  [4;36;1mRecipe Load (0.0ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/recipes
+Rendering recipes/index
+Completed in 7ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/recipes]
+
+
+Processing RecipesController#edit (for 127.0.0.1 at 2010-02-06 17:48:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecipe Load (0.0ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Recipe with ID=1):
+  app/controllers/recipes_controller.rb:37:in `edit'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (73.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-02-06 17:48:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecipe Load (1.0ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 1) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Recipe with ID=1):
+  app/controllers/recipes_controller.rb:16:in `show'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (35.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing RecipesController#new (for 127.0.0.1 at 2010-02-06 17:48:58) [GET]
+Rendering template within layouts/recipes
+Rendering recipes/new
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/recipes/new]
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-02-06 17:48:59) [GET]
+  [4;35;1mRecipe Load (0.0ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/recipes
+Rendering recipes/index
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://127.0.0.1/recipes]
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-02-06 17:49:32) [GET]
+  [4;36;1mRecipe Load (0.0ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/recipes
+Rendering recipes/index
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://127.0.0.1/recipes]
+
+
+Processing RecipesController#new (for 127.0.0.1 at 2010-02-06 17:49:34) [GET]
+Rendering template within layouts/recipes
+Rendering recipes/new
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/recipes/new]
+
+
+Processing RecipesController#create (for 127.0.0.1 at 2010-02-06 17:49:38) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"pP4gxqwf61QY4meeKBdaZ/kDuD2dfAIa9xeg/y6pJaw=", "recipe"=>{"title"=>"blah", "author"=>"foo", "description"=>"alfjlasj"}}
+  [4;35;1mRecipe Create (1.0ms)[0m   [0mINSERT INTO "recipes" ("updated_at", "title", "author", "description", "created_at") VALUES('2010-02-06 22:49:38', 'blah', 'foo', 'alfjlasj', '2010-02-06 22:49:38')[0m
+Redirected to http://127.0.0.1:3000/recipes/2
+Completed in 93ms (DB: 1) | 302 Found [http://127.0.0.1/recipes]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-02-06 17:49:39) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mRecipe Load (1.0ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 2) [0m
+Rendering template within layouts/recipes
+Rendering recipes/show
+Completed in 10ms (View: 3, DB: 1) | 200 OK [http://127.0.0.1/recipes/2]
+
+
+Processing RecipesController#edit (for 127.0.0.1 at 2010-02-06 17:49:40) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mRecipe Load (0.0ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 2) [0m
+Rendering template within layouts/recipes
+Rendering recipes/edit
+Completed in 12ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/recipes/2/edit]
+
+
+Processing RecipesController#update (for 127.0.0.1 at 2010-02-06 17:49:43) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"pP4gxqwf61QY4meeKBdaZ/kDuD2dfAIa9xeg/y6pJaw=", "id"=>"2", "recipe"=>{"title"=>"blah", "author"=>"foo", "description"=>"alfjlasldfsadlkfasj"}}
+  [4;36;1mRecipe Load (0.0ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 2) [0m
+  [4;35;1mRecipe Update (2.0ms)[0m   [0mUPDATE "recipes" SET "description" = 'alfjlasldfsadlkfasj', "updated_at" = '2010-02-06 22:49:43' WHERE "id" = 2[0m
+Redirected to http://127.0.0.1:3000/recipes/2
+Completed in 130ms (DB: 2) | 302 Found [http://127.0.0.1/recipes/2]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-02-06 17:49:43) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mRecipe Load (0.0ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 2) [0m
+Rendering template within layouts/recipes
+Rendering recipes/show
+Completed in 10ms (View: 3, DB: 0) | 200 OK [http://127.0.0.1/recipes/2]
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-02-06 17:49:44) [GET]
+  [4;35;1mRecipe Load (0.0ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/recipes
+Rendering recipes/index
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/recipes]
+
+
+Processing RecipesController#show (for 127.0.0.1 at 2010-02-06 17:50:46) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mRecipe Load (0.0ms)[0m   [0;1mSELECT * FROM "recipes" WHERE ("recipes"."id" = 2) [0m
+Rendering template within layouts/recipes
+Rendering recipes/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://127.0.0.1/recipes/2]
+
+
+Processing RecipesController#edit (for 127.0.0.1 at 2010-02-06 17:50:47) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mRecipe Load (1.0ms)[0m   [0mSELECT * FROM "recipes" WHERE ("recipes"."id" = 2) [0m
+Rendering template within layouts/recipes
+Rendering recipes/edit
+Completed in 12ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/recipes/2/edit]
+
+
+Processing RecipesController#new (for 127.0.0.1 at 2010-02-06 17:50:47) [GET]
+Rendering template within layouts/recipes
+Rendering recipes/new
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/recipes/new]
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-02-06 17:50:47) [GET]
+  [4;36;1mRecipe Load (1.0ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/recipes
+Rendering recipes/index
+Completed in 12ms (View: 6, DB: 1) | 200 OK [http://127.0.0.1/recipes]
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-02-06 17:52:13) [GET]
+  [4;35;1mRecipe Load (1.0ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/recipes
+Rendering recipes/index
+Completed in 12ms (View: 5, DB: 1) | 200 OK [http://127.0.0.1/recipes]
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-02-06 17:52:33) [GET]
+  [4;36;1mRecipe Load (0.0ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/recipes
+Rendering recipes/index
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/recipes]
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-02-06 17:59:12) [GET]
+  [4;35;1mRecipe Load (1.0ms)[0m   [0mSELECT * FROM "recipes" [0m
+Rendering template within layouts/recipes
+Rendering recipes/index
+Completed in 13ms (View: 6, DB: 1) | 200 OK [http://127.0.0.1/recipes]
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-02-06 17:59:19) [GET]
+  [4;36;1mRecipe Load (1.0ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/recipes
+Rendering recipes/index
+Completed in 11ms (View: 6, DB: 1) | 200 OK [http://127.0.0.1/recipes]
+
+
+Processing RecipesController#index (for 127.0.0.1 at 2010-02-06 18:03:08) [GET]
+  [4;36;1mRecipe Load (0.0ms)[0m   [0;1mSELECT * FROM "recipes" [0m
+Rendering template within layouts/recipes
+Rendering recipes/index
+Completed in 52ms (View: 46, DB: 0) | 200 OK [http://127.0.0.1/recipes]
